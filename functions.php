@@ -1,4 +1,17 @@
 <?php
+/* DEFINE SITE VARIABLES
+*/
+
+function tnatheme_globals() {
+    global $tnatheme;
+    if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
+        $tnatheme['subsitepath'] = '';
+    } else {
+        $tnatheme['subsitepath'] = '/{sub}/{site}/{path}';
+    }
+}
+tnatheme_globals();
+
 /*
  *
  * ================================================================================================
