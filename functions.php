@@ -4,14 +4,21 @@
 
 function tnatheme_globals() {
     global $tnatheme;
+    $tnatheme['ischildsite'] = 1;
+    $tnatheme['childsitename'] = '{CHILD SITE NAME}';
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
         $tnatheme['subsitepath'] = '';
+        $tnatheme['subsitepatharr'] = array();
     } else {
-        $tnatheme['subsitepath'] = '/{sub}/{site}/{path}';
+        $tnatheme['subsitepath'] = '{PATH TO SUBSITE - relative to root and no trailing slash}';
+        /* array containing the path to the root with trailing slash - example below */
+        $tnatheme['subsitepatharr'] = array(
+            'About us' => '/about/',
+            'Our role' => '/about/our-role/'
+        );
     }
 }
 tnatheme_globals();
-
 /*
  *
  * ================================================================================================
