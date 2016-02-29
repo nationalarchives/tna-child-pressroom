@@ -10,7 +10,7 @@ function tnatheme_globals() {
         $tnatheme['subsitepath'] = '';
         $tnatheme['subsitepatharr'] = array();
     } else {
-        $tnatheme['subsitepath'] = 'about/pressroom/';
+        $tnatheme['subsitepath'] = '/about/press-room';
         /* array containing the path to the root with trailing slash - example below */
         $tnatheme['subsitepatharr'] = array(
             'About us' => '/about/'
