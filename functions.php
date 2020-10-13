@@ -6,7 +6,13 @@ function tnatheme_globals() {
     global $tnatheme;
     $tnatheme['ischildsite'] = 1;
     $tnatheme['childsitename'] = 'Press room';
-    if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
+    if (isset($_SERVER['HTTP_X_NGINX_PROXY'])) {
+        $tnatheme['subsitepath'] = '/about/press-room';
+        /* array containing the path to the root with trailing slash - example below */
+        $tnatheme['subsitepatharr'] = array(
+            'About us' => '/about/'
+        );
+    } elseif (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
         $tnatheme['subsitepath'] = '';
         $tnatheme['subsitepatharr'] = array();
     } else {
