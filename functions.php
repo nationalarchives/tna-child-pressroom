@@ -6,7 +6,8 @@ function tnatheme_globals() {
     global $tnatheme;
     $tnatheme['ischildsite'] = 1;
     $tnatheme['childsitename'] = 'Press room';
-    if (isset($_SERVER['HTTP_X_NGINX_PROXY'])) {
+    $headers = apache_request_headers();
+    if ( isset($_SERVER['HTTP_X_NGINX_PROXY']) && isset($headers['X_HOST_TYPE']) && $headers['X_HOST_TYPE'] == 'public' ) {
         $tnatheme['subsitepath'] = '/about/press-room';
         /* array containing the path to the root with trailing slash - example below */
         $tnatheme['subsitepatharr'] = array(
